@@ -63,3 +63,54 @@ let httpStat = (404, "Not Found") // useful :)
 // how to decompose tuples
 let (statusCode, statusMessage) = httpStat
 print("stats: \(statusCode), and \(statusMessage)")
+
+// in Swift, a precondition is a condition that must be true for code to execute correctly
+var index = 4 // to not throw any error, very clean :))
+precondition(index > 0, "Index must be greater than zero.")
+
+// i dont mention operators, cuz, why?? its basic math bro
+
+// range, GOATed syntax
+let count = 5
+for _ in 0...count { // OMGGGGGG, i LOVE IT
+    print(count)
+}
+
+// one sided range
+let names = ["amir", "parsa", "reza", "mamad"]
+
+for name in names[...1] { // [0] and [1]
+    print(name)
+}
+
+for name in names[1...] { // [1] and [2] and [3]
+    print(name)
+}
+
+let rangeee = 0...5
+
+print(Array(rangeee))
+// or
+print(rangeee.map {
+    $0
+})
+
+// multi line string
+let quotation = """
+The White Rabbit put on his spectacles.  "Where shall I begin,
+please your Majesty?" he asked.
+
+"Begin at the beginning," the King said gravely, "and go on
+till you come to the end; then stop."
+"""
+
+print(quotation)
+
+// insert and rmove
+var txt = "hi"
+txt.insert("!", at: txt.endIndex)
+print(txt)
+
+// insert multiple chars
+txt.insert(contentsOf: ":D ", at: txt.startIndex)
+print(txt)
