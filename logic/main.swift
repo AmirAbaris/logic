@@ -217,3 +217,29 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 let res = twoSum([1, 5, 55, 4, 5], 9)
 print(res)
 
+// valid anagram
+func isAnagram(_ s: String, _ t: String) -> Bool {
+    guard s.count == t.count else { return false }
+    
+    var dic = [Character : Int]()
+    
+    for item in s {
+        dic[item, default: 0] += 1
+    }
+    
+    for item in t {
+        dic[item, default: 0] -= 1
+        
+        if let unwarppedDic = dic[item], unwarppedDic < 0 {
+            return false
+        }
+    }
+    
+    return true
+}
+
+func containsDuplicate(_ nums: [Int]) -> Bool {
+    var set = Set<Int>(nums)
+    
+    return set.count == nums.count ? true : false
+}
