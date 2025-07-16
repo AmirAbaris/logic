@@ -133,3 +133,87 @@ var doSomethin: (String) -> Void = { str in
     print(str)
 }
 doSomethin("hi")
+
+// for loops:
+
+// in
+let countt = 1...10
+for number in countt {
+    print(number)
+}
+
+// filtered in
+for number in countt where number != 3 {
+    print(number)
+}
+
+// range
+for n in 1...5 {
+    print(n)
+}
+
+// stride
+for n in stride(from: 0, to: 10, by: 2) {
+    print(n)
+}
+
+// enum
+for (index, val) in countt.enumerated() {
+    print(index + val)
+}
+
+// o(n^2) search
+func badSearch(arr: [Int]) -> Bool {
+    for i in 0..<arr.count {
+        for j in (i + 1)..<arr.count {
+            if arr[i] == arr[j] { return true}
+        }
+    }
+    
+    return false
+}
+
+// b search
+func bSearch(arr: [Int]) -> Int? {
+    let target = 2 // hardcoded
+    var low = arr.startIndex
+    var high = arr.endIndex - 1
+    
+    while low <= high {
+        let mid = (low + high) / 2
+        
+        if arr[mid] == target { return mid }
+        else if arr[mid] < target {
+            low = mid + 1
+        }
+        else {
+            high = mid - 1
+        }
+    }
+    
+    return nil
+}
+
+//two sum:
+func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+    // declare hashmap
+    var dic = [Int : Int]()
+    
+    for (index, val) in nums.enumerated() {
+        // was struggling in just this LINE, damn, so cool
+        // this is the check to db, if it had the complement, it returns it,
+        if let complementIndex = dic[target - val] {
+            return [complementIndex, index]
+        }
+        
+        // damn
+        // this is the db for our case -- remembers the index values
+        dic[val] = index
+    }
+
+    return []
+}
+
+let res = twoSum([1, 5, 55, 4, 5], 9)
+print(res)
+
