@@ -55,3 +55,11 @@ func doSomeShit(number: Int?) -> Int? {
     return unwrappedNumber
 }
 
+// at last, my enemy, Tuples. cuz i worked w them rarely
+// Tuples group multiple values into a single compound value. The values within a tuple can be of any type and don’t have to be of the same type as each other.
+
+let httpStat = (404, "Not Found") // useful :)
+
+// how to decompose tuples
+let (statusCode, statusMessage) = httpStat
+print("stats: \(statusCode), and \(statusMessage)")
