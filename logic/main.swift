@@ -114,3 +114,22 @@ print(txt)
 // insert multiple chars
 txt.insert(contentsOf: ":D ", at: txt.startIndex)
 print(txt)
+
+// how to create a empry arr
+var ints = [Int]()
+print(ints)
+
+// Sets - very important
+// they are UNIQUE, thats it
+var letters = Set<Character>()
+letters.formUnion(["a", "b", "a"])
+print(letters)
+
+// dictionaries
+let numberOfLegs: Dictionary<String, Int> = ["spider": 8, "ant": 6, "cat": 4]
+
+// closues
+var doSomethin: (String) -> Void = { str in
+    print(str)
+}
+doSomethin("hi")
