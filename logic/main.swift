@@ -243,3 +243,24 @@ func containsDuplicate(_ nums: [Int]) -> Bool {
     
     return set.count == nums.count ? true : false
 }
+
+func groupAnagrams(_ strs: [String]) -> [[String]] {
+    var dict = [String: [String]]()
+    
+    for item in strs {
+        let k = String(item.sorted())
+        dict[k, default: []].append(item)
+    }
+    
+    return Array(dict.values)
+}
+
+func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
+    var dict = [Int: Int]()
+    
+    for num in nums {
+        dict[num, default: 0] += 1
+    }
+    
+    return dict.sorted {$0.value > $1.value }.prefix(k).map { $0.key }
+}
